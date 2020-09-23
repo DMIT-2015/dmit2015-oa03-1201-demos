@@ -60,5 +60,23 @@ public class Rectangle {
 	}
 
 	
+	public Rectangle[] nextTenRectangles() {
+		final int ARRAY_SIZE = 10;
+		// Create a new array of Rectangle
+		Rectangle[] rectangleArray = new Rectangle[ARRAY_SIZE];
+		double nextLength = length;
+		double nextWidth = width;
+		for (int index = 0; index < ARRAY_SIZE; index++) {
+			// Create a new rectangle 
+			Rectangle currentRectangle = new Rectangle();
+			currentRectangle.setLength(++nextLength);
+			currentRectangle.setWidth(++nextWidth);
+			// Add the current rectangle to the array
+			rectangleArray[index] = currentRectangle;
+		}
+		
+		return rectangleArray;
+	}
+	
 
 }

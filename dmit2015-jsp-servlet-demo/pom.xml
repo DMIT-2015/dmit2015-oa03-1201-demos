@@ -21,6 +21,17 @@
   </properties>
 
   <dependencies>
+  	<!-- 
+  		Add the jstl dependency to get Eclipse to stop showing the error message:
+  		
+  		Can not find the tag library descriptor for "http://java.sun.com/jsp/jstl/core"  
+  	-->
+  	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
   
   	<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
 	<dependency>
