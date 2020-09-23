@@ -17,11 +17,11 @@ public class Rectangle {
 	private double width;
 
 	/**
-	 * Construct a rectangle with a length 0 and a width 0
+	 * Construct a rectangle with a length 1 and a width 1
 	 */
 	public Rectangle() {
-		length = 0;
-		width = 0;
+		length = 1;
+		width = 1;
 	}
 
 	public Rectangle(double length, double width) {
