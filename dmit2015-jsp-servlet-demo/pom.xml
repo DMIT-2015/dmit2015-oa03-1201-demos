@@ -21,6 +21,26 @@
   </properties>
 
   <dependencies>
+  
+  	<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+	<dependency>
+	    <groupId>org.junit.platform</groupId>
+	    <artifactId>junit-platform-runner</artifactId>
+	    <version>1.5.0</version>
+	    <scope>test</scope>
+	</dependency>
+  	
+  	
+  	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.12</version>
+	    <scope>provided</scope>
+	</dependency>
+	  	
+  
+  
     <dependency>
       <groupId>jakarta.platform</groupId>
       <artifactId>jakarta.jakartaee-api</artifactId>
