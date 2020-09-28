@@ -17,7 +17,10 @@ public class Circle {
 		radius = 1;
 	}
 
-	/** Construct a circle with a specified radius */
+	/**
+	 * Construct a circle with a specified radius
+	 * @param newRadius
+	 */
 	public Circle(double newRadius) {
 		radius = newRadius;
 	}
@@ -34,7 +37,7 @@ public class Circle {
 	/**
 	 * Set the radius
 	 * 
-	 * @param radius The value to store in the radius field
+	 * @param newRadius The value to store in the radius field
 	 */
 	public void setRadius(double newRadius) {
 		this.radius = newRadius;
