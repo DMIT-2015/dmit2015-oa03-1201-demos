@@ -20,13 +20,10 @@
 	 <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>JSP Template</title>
+    <title>Lotto Quick Picks</title>
         
   </head>
-  <body>
-    <h1>JSP Template Page</h1>
-    
-    
+  <body>   
 
 <div class="jumbotron">
 	<h1>Lotto Quick Picks</h1>
@@ -46,7 +43,7 @@
 	</c:if>
 </div>
 
-<form method="get" action="/LottoQuickPickServlet01" >
+<form method="get" action="/servlet/LottoQuickPickServlet01" >
 	<button type="submit" class="btn btn-primary">Lotto MAX Quick Pick</button>
 </form>
 
