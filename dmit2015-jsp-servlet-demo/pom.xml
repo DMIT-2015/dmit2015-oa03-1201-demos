@@ -21,6 +21,23 @@
   </properties>
 
   <dependencies>
+  	
+  	<!-- Use this Javamail dependency for Java EE applications running on a Java EE server -->
+<!-- 
+	<dependency>
+	    <groupId>jakarta.mail</groupId>
+	    <artifactId>jakarta.mail-api</artifactId>
+	    <version>1.6.5</version>
+	</dependency>
+ -->  	
+  
+  	<!-- Use this Javamail dependency for a Java application running on your local machine -->
+	<dependency>
+	    <groupId>com.sun.mail</groupId>
+	    <artifactId>javax.mail</artifactId>
+	    <version>1.6.2</version>
+	</dependency>  	
+  
   	<!-- 
   		Add the jstl dependency to get Eclipse to stop showing the error message:
   		

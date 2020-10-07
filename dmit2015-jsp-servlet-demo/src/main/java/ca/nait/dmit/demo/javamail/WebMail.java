@@ -9,6 +9,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
 
 public class WebMail {
 
@@ -50,22 +51,21 @@ public class WebMail {
 		}			
 	}
 
-
-
 	public static void main(String[] args) {
 		try {
 			WebMail app = new WebMail();
 			
-			String mailToEmail = "swu@nait.ca";
-			String mailToName = "DMIT2015 Sam Wu";
-			String subject = "DMIT2015 - JavaMail API test";
-			String message = "You will be assimilated! Resistance is futile.";
+			String mailToEmail = JOptionPane.showInputDialog("What is your email address?");
+			String mailToName = JOptionPane.showInputDialog("What is your name?");
+			String subject = JOptionPane.showInputDialog("What is the subject for the email?");
+			String message = JOptionPane.showInputDialog("What is the message for the email?");
+			
 			long startTime = System.currentTimeMillis();
 			app.send(mailToEmail, mailToName, subject, message);
 			long sendDuration = System.currentTimeMillis() - startTime;
-			System.out.println("Send mail was successful in " +sendDuration + " milliseconds");
+			JOptionPane.showMessageDialog(null, "Send mail was successful in " + sendDuration + " milliseconds");
 		} catch (Exception e) {
-			System.out.println("Send mail was not successful.");
+			JOptionPane.showMessageDialog(null, "Send mail was not successful.");
 			e.printStackTrace();
 		}
 	}
