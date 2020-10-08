@@ -15,13 +15,13 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class ServletFitler
  */
-@WebFilter("/servlet/*")
-public class ServletFitler implements Filter {
+@WebFilter("/servlet/form/*")
+public class HtmlFormServletFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public ServletFitler() {
+    public HtmlFormServletFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -36,10 +36,9 @@ public class ServletFitler implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
-		// Log all parameter name/value pairs for debugging
+		// Log all parameter name/value pairs for debugging		
 		ServletContext application = request.getServletContext();
+		application.log("Processing HTML Form data");
 		Enumeration<String> iterator = request.getParameterNames();
 		while ( iterator.hasMoreElements() ) {
 			String parameterName = iterator.nextElement();

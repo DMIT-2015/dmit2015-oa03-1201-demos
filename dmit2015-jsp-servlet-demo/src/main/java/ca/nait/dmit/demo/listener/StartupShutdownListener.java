@@ -1,5 +1,8 @@
 package ca.nait.dmit.demo.listener;
 
+import java.io.IOException;
+import java.util.Properties;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -12,6 +15,8 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class StartupShutdownListener implements ServletContextListener {
 
+	public static final String SESSION_COUNT = "sessionCount";
+	
     /**
      * Default constructor. 
      */
@@ -23,18 +28,31 @@ public class StartupShutdownListener implements ServletContextListener {
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
     public void contextDestroyed(ServletContextEvent sce)  { 
-         // TODO Auto-generated method stub
     	ServletContext application = sce.getServletContext();
-    	application.log("My demo app has stopped");
+		application.log("DMIT2015 Demo: webapp shutdown");
     }
 
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
-         // TODO Auto-generated method stub
     	ServletContext application = sce.getServletContext();
-    	application.log("My demo app has started");
+		application.log("DMIT2015 Demo: webapp started");
+		
+		// Store the number of session in application scope
+		application.setAttribute(SESSION_COUNT, 0);
+		
+		// Create a new Properties object
+		Properties userProps = new Properties();
+		try {
+			// Load the Properties object with data from "/users.properties"
+			userProps.load(getClass().getResourceAsStream("/users.properties"));
+			// Store the appProperties in application scope
+			application.setAttribute("userProps", userProps);
+		} catch (IOException e) {
+			application.log("Server loading user.properties");
+			e.printStackTrace();
+		}
     }
 	
 }
