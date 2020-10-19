@@ -24,7 +24,7 @@
 	<form method="post">
 		<label for="radius">Radius</label>
 		<input type="text" id="radius" name="radius" value="${circleBean.radius}"/>	
-		<input type="submit" value="Calculate" />
+		<input type="submit" id="submit" value="Calculate" />
 	</form>
 	
 </body>

@@ -22,6 +22,22 @@
 
   <dependencies>
   	
+  	<dependency>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>6.1.6.Final</version>
+	    <scope>test</scope>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.glassfish</groupId>
+	    <artifactId>jakarta.el</artifactId>
+	    <version>3.0.3</version>
+	    <scope>test</scope>
+	</dependency>
+
+  	
+  	
   	<!-- Use this Javamail dependency for Java EE applications running on a Java EE server -->
 <!-- 
 	<dependency>
@@ -105,6 +121,38 @@
 	    <scope>test</scope>
 	</dependency>
 
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-java</artifactId>
+		<version>3.141.59</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>io.github.bonigarcia</groupId>
+		<artifactId>webdrivermanager</artifactId>
+		<version>4.2.2</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>io.github.bonigarcia</groupId>
+		<artifactId>selenium-jupiter</artifactId>
+		<version>3.3.5</version>
+		<scope>test</scope>
+	</dependency>
+	<!-- Guava is required on Windows for Selenium to run. Not required on Linux -->
+	<dependency>
+	  <groupId>com.google.guava</groupId>
+	  <artifactId>guava</artifactId>
+	  <version>29.0-jre</version>
+	  <scope>test</scope>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+	<dependency>
+	    <groupId>org.hamcrest</groupId>
+	    <artifactId>hamcrest</artifactId>
+	    <version>2.2</version>
+	    <scope>test</scope>
+	</dependency>
     
     
   </dependencies>
