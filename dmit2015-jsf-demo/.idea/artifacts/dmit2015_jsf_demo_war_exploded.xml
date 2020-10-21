@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="dmit2015-jsf-demo:war exploded">
+    <output-path>$PROJECT_DIR$/target/dmit2015-jsf-demo-1201</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>dmit2015-jsf-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="dmit2015-jsf-demo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.omnifaces:omnifaces:3.8" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:8.0" />
+          <element id="library" level="project" name="Maven: net.bootsfaces:bootsfaces:1.5.0" />
+          <element id="library" level="project" name="Maven: com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20191001.1" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:27.1-jre" />
+          <element id="library" level="project" name="Maven: com.google.guava:failureaccess:1.0.1" />
+          <element id="library" level="project" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" />
+          <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.2" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:2.5.2" />
+          <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.2.0" />
+          <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.17" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/dmit2015-jsf-demo-1201/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="dmit2015-jsf-demo/web/Web" />
+    </root>
+  </artifact>
+</component>
