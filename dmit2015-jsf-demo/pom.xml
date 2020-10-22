@@ -18,13 +18,20 @@
         <version.omnifaces>3.8</version.omnifaces>
         <version.primefaces>8.0</version.primefaces>
         <version.bootsfaces>1.5.0</version.bootsfaces>
-
         <version.butterfaces>3.4.2</version.butterfaces>
         <version.highfaces>1.3</version.highfaces>
-        <version.thymeleaf>3.0.11.RELEASE</version.thymeleaf>
+
+        <version.lombok>1.18.16</version.lombok>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.omnifaces</groupId>
@@ -40,6 +47,11 @@
             <groupId>net.bootsfaces</groupId>
             <artifactId>bootsfaces</artifactId>
             <version>${version.bootsfaces}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.butterfaces</groupId>
+            <artifactId>components</artifactId>
+            <version>${version.butterfaces}</version>
         </dependency>
 
         <dependency>
