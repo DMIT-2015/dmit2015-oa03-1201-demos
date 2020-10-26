@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui"
+>
+<h:head>
+    <!-- Bootstrap required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title>Home Page</title>
+</h:head>
+
+<h:body>
+    <h1>Home Page</h1>
+
+    <b:messages id="messages" />
+
+    <b:form>
+        <b:inputText
+                id="username"
+                label="Enter your name: "
+                value="#{helloUsernameController.username}">
+        </b:inputText>
+
+        <b:commandButton
+                value="submit"
+                action="#{helloUsernameController.submit()}"
+                look="primary"
+                ajax="false">
+        </b:commandButton>
+
+        <b:commandButton
+                value="submit AJAX"
+                action="#{helloUsernameController.submit()}"
+                look="primary"
+                ajax="true"
+                update=":messages"
+        >
+        </b:commandButton>
+    </b:form>
+
+    <footer>
+        <p>This
+            <a href="https://javaee.github.io/tutorial/toc.html" target="_blanks">Java EE 8</a>
+            web application is built by user2015 on 2020-10-26
+        </p>
+    </footer>
+</h:body>
+
+</html>
