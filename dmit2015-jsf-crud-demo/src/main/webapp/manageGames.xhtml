@@ -58,14 +58,20 @@
         </b:inputText>
 
         <b:commandButton value="Add Game"
+                         look="primary"
+                         iconAwesome="save"
                          action="#{gameCreateAndListController.addGame}"
                          ajax="false">
         </b:commandButton>
     </b:form>
 
-    <b:form>
+    <h:form>
 
-        <b:dataTable id="gamesTable" value="#{gameCreateAndListController.games}" var="currentGame">
+        <b:dataTable id="gamesTable" value="#{gameCreateAndListController.games}" var="currentGame"
+            csv="true"
+            excel="true"
+            pdf="true"
+            print="true">
 
             <b:dataTableColumn label="Game Title" value="#{currentGame.title}" />
 
@@ -73,9 +79,15 @@
 
             <b:dataTableColumn label="Purchase Date" value="#{currentGame.purchaseDate}" />
 
-            <b:dataTableColumn label="Purchase Price" value="#{currentGame.purchasePrice}" />
+            <b:dataTableColumn label="Purchase Price" value="#{of:formatCurrency(currentGame.purchasePrice,'$')}" styleClass="text-right"/>
 
-            <b:dataTableColumn>
+            <b:dataTableColumn label="Action">
+                <b:link outcome="editGame" look="info" iconAwesome="edit">
+                    <f:param name="editId" value="#{currentGame.gameId}" />
+                    edit
+                </b:link>
+
+<f:verbatim>
                 <b:commandButton value="Delete Game"
                                  look="danger"
                                  iconAwesome="trash"
@@ -83,9 +95,11 @@
                                  immediate="true"
                                  ajax="false"
                                  action="#{gameCreateAndListController.deleteGame(currentGame.gameId)}" />
+</f:verbatim>
+
             </b:dataTableColumn>
         </b:dataTable>
-    </b:form>
+    </h:form>
 
     <footer>
         <p>This

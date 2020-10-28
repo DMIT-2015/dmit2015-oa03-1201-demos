@@ -54,11 +54,11 @@
       <artifactId>bootsfaces</artifactId>
       <version>${version.bootsfaces}</version>
     </dependency>
-    <dependency>
-      <groupId>org.butterfaces</groupId>
-      <artifactId>components</artifactId>
-      <version>${version.butterfaces}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.butterfaces</groupId>-->
+<!--      <artifactId>components</artifactId>-->
+<!--      <version>${version.butterfaces}</version>-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>jakarta.platform</groupId>
