@@ -12,7 +12,8 @@ import javax.persistence.PersistenceContext;
 @Transactional
 public class MovieRepository {
 
-    @PersistenceContext(unitName = "h2database-jpa-pu")
+//    @PersistenceContext(unitName = "h2database-jpa-pu")
+    @PersistenceContext(unitName = "oracle-jpa-pu")
     private EntityManager em;
 
     public void add(Movie newMovie) {

@@ -10,9 +10,18 @@
 
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-      <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/import-movies.sql" />
+<!--      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+<!--      <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/import-movies.sql" />-->
     </properties>
   </persistence-unit>
+
+   	<persistence-unit name="oracle-jpa-pu" transaction-type="JTA">
+   		<jta-data-source>java:app/datasources/oracleDS</jta-data-source>
+   		<properties>
+   			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
+   			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/import-movies.sql" />
+   		</properties>
+   	</persistence-unit>
 
 </persistence>

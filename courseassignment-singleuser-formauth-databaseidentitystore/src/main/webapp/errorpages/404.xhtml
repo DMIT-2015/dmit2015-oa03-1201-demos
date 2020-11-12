@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:f5="http://xmlns.jcp.org/jsf/passthrough" 	
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/jsf-templates/course-assignments-bootsfaces-template.xhtml"
+>
+
+
+	<ui:param name="title" value="File Not Found" />
+
+	<ui:define name="maincontent">
+		<b:jumbotron>
+			<h1>HTTP Error 404 - File Not Found</h1>
+		</b:jumbotron>
+		
+		<p>The requested resource #{requestScope['javax.servlet.error.request_uri']} does not exist on the server.
+		</p>
+
+
+	</ui:define>
+
+</ui:composition>
