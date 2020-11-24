@@ -1,0 +1,65 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+        xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:o="http://omnifaces.org/ui"
+        xmlns:of="http://omnifaces.org/functions"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:b="http://bootsfaces.net/ui"
+>
+    <p:outputPanel id="detailPanel">
+
+        <b:panel title="User Details"
+                 collapsible="false"
+                 rendered="#{(userDetail != null) ? true : false}">
+
+            <b:inputText id="username"
+                         label="Username"
+                         label-small-screen="2" small-screen="10"
+                         value="#{userDetail.username}">
+                <b:focus />
+            </b:inputText>
+
+            <b:inputSecret id="password"
+                           label="Password"
+                           label-small-screen="2" small-screen="10"
+                           value="#{userDetail.plainTextPassword}"
+                           type="password">
+                <f:validateBean validationGroups="javax.validation.groups.Default,common.security.model.PasswordValidationGroup" />
+            </b:inputSecret>
+
+            <b:inputSecret id="confirmedPassword"
+                           label="Confirm Password"
+                           label-small-screen="2" small-screen="10"
+                           value="#{userDetail.confirmedPlainTextPassword}"
+                           type="password">
+                <f:validateBean validationGroups="javax.validation.groups.Default,common.security.model.PasswordValidationGroup" />
+            </b:inputSecret>
+
+            <div class="form-group row">
+                <div class="col-sm-2">Security Groups</div>
+                <div class="col-sm-10">
+                    <div class="form-check">
+
+                        <h:selectManyCheckbox id="groups"
+                                              value="#{callerUserCRUDController.selectedGroups}">
+                            <f:selectItem itemLabel="STUDENT" itemValue="STUDENT" />
+                            <f:selectItem itemLabel="INSTRUCTOR" itemValue="INSTRUCTOR" />
+                            <f:selectItem itemLabel="ADMIN" itemValue="ADMIN" />
+                            <f:selectItem itemLabel="DEVELOPER" itemValue="DEVELOPER" />
+                        </h:selectManyCheckbox>
+
+                    </div>
+                </div>
+            </div>
+
+        </b:panel>
+
+    </p:outputPanel>
+
+</ui:composition>

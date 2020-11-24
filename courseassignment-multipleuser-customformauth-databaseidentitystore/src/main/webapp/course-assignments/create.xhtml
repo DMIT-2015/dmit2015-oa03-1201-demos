@@ -1,0 +1,67 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+        xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:o="http://omnifaces.org/ui"
+        xmlns:of="http://omnifaces.org/functions"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:b="http://bootsfaces.net/ui"
+        template="/WEB-INF/jsf-templates/course-assignments-bootsfaces-template.xhtml"
+>
+
+    <ui:param name="title" value="Create Course Assignment" />
+
+    <ui:define name="maincontent">
+
+        <b:jumbotron>
+            <h1>Create Course Assignment</h1>
+        </b:jumbotron>
+
+        <b:messages id="messages" />
+
+        <b:form>
+
+            <b:panel title="Course Assignment Details"
+                     collapsible="false"
+            >
+
+                <b:inputText id="assignmentName"
+                             label="Assignment Name"
+                             value="#{currentCourseAssignmentCreateController.newCourseAssignment.assignmentName}">
+                    <b:focus />
+                </b:inputText>
+
+                <!-- https://momentjs.com/docs/#/displaying/format/ -->
+                <!-- https://javaee.github.io/tutorial/jsf-page-core001.htmlhttps://javaee.github.io/tutorial/jsf-page-core001.html -->
+                <b:dateTimePicker id="dueDateTime"
+                                  label="Due Date Time"
+                                  format="MM/DD/YYYY H:mm"
+                                  value="#{currentCourseAssignmentCreateController.newCourseAssignment.dueDateTime}"
+                                  allow-input-toggle="true"
+                                  show-date="true"
+                                  show-time="true"
+                                  show-icon="true"
+                >
+                    <f:convertDateTime type="localDateTime" pattern="MM/dd/yyyy H:mm"/>
+                </b:dateTimePicker>
+
+                <b:commandButton value="Create"
+                                 look="primary"
+                                 iconAwesome="save"
+                                 action="#{currentCourseAssignmentCreateController.onCreateNew()}"
+                                 update=":messages @form" />
+            </b:panel>
+            <b:link id="backToListLink" outcome="index"  >
+                Back to List
+            </b:link>
+
+        </b:form>
+
+    </ui:define>
+
+</ui:composition>
