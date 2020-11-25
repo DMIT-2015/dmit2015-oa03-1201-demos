@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	  xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	  xmlns:jsf="http://xmlns.jcp.org/jsf"
+	  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	  xmlns:o="http://omnifaces.org/ui"
+	  xmlns:of="http://omnifaces.org/functions"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:b="http://bootsfaces.net/ui"
+>
+<h:head>
+	<!-- Bootstrap required meta tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+	<title>HTTP Error 500 - Internal Server Error</title>
+</h:head>
+
+<h:body>
+	<b:container>
+
+		<b:jumbotron>
+			<h1>HTTP Error 500 - Internal Server Error</h1>
+		</b:jumbotron>
+
+		<h2>Oops!</h2>
+		<p>
+			Unfortunately, an unexpected problem has occurred during processing of your request.
+			This is not your fault, <strong>this is our fault</strong>.
+			We have been notified about this and we will try to investigate and fix it.
+		</p>
+		<p>
+			You can try going back to <a href="#{requestScope['javax.servlet.error.request_uri']}">the same page</a>,
+			or you can restart at <h:link outcome="/index">the home page</h:link>.
+		</p>
+
+		<b:link outcome="/index">
+			Home
+		</b:link>
+
+		<c:if test="#{facesContext.application.projectStage eq 'Development'}">
+			<h3>Error Detail for developer</h3>
+			<dl>
+				<dt>Request URI</dt>
+				<dd>#{requestScope['javax.servlet.error.request_uri']}</dd>
+				<dt>Exception type</dt>
+				<dd>#{requestScope['javax.servlet.error.exception']['class']}</dd>
+				<dt>Exception message</dt>
+				<dd>#{requestScope['javax.servlet.error.exception'].message}</dd>
+				<dt>Stack trace</dt>
+				<dd><pre>#{
+						facesContext.externalContext.response.writer.flush()
+						}#{
+						requestScope['javax.servlet.error.exception'].printStackTrace
+								(facesContext.externalContext.response.writer)
+						}</pre></dd>
+			</dl>
+		</c:if>
+
+	</b:container>
+
+</h:body>
+
+</html>
