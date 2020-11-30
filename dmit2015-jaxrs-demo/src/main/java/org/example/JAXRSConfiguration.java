@@ -3,7 +3,7 @@ package org.example;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("api")
+@ApplicationPath("webapi")
 public class JAXRSConfiguration extends Application {
 
 }
