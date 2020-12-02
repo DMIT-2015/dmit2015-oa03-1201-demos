@@ -16,14 +16,14 @@
     </properties>
   </persistence-unit>
 
-  <persistence-unit name="mssql-jpa-pu" transaction-type="JTA">
-    <jta-data-source>java:app/datasources/mssqlDS</jta-data-source>
+<!--  <persistence-unit name="mssql-jpa-pu" transaction-type="JTA">-->
+<!--    <jta-data-source>java:app/datasources/mssqlDS</jta-data-source>-->
 
-    <properties>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2012Dialect"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-    </properties>
+<!--    <properties>-->
+<!--      <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2012Dialect"/>-->
+<!--      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+<!--    </properties>-->
 
-  </persistence-unit>
+<!--  </persistence-unit>-->
 
 </persistence>
