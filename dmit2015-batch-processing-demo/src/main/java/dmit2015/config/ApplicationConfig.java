@@ -12,13 +12,13 @@ import javax.enterprise.context.ApplicationScoped;
 		user="sa",
 		password="sa"),
 
-	@DataSourceDefinition(
-		name="java:app/datasources/mssqlDS",
-		className="com.microsoft.sqlserver.jdbc.SQLServerDataSource",
-		url="jdbc:sqlserver://192.168.101.130;databaseName=DMIT2015DB",
-		user="user2015",
-		password="Password2015"),
-	
+//	@DataSourceDefinition(
+//		name="java:app/datasources/mssqlDS",
+//		className="com.microsoft.sqlserver.jdbc.SQLServerDataSource",
+//		url="jdbc:sqlserver://192.168.101.130;databaseName=DMIT2015DB",
+//		user="user2015",
+//		password="Password2015"),
+//
 })
 
 @ApplicationScoped

@@ -19,7 +19,7 @@ import ca.edmonton.data.entity.ScheduledPhotoEnforcementZoneCentrePoint;
 @Named
 public class ScheduledPhotoEnforcementZoneCentrePointImportCsvDataBatchItemWriter extends AbstractItemWriter {
 
-	@PersistenceContext(unitName = "mssql-jpa-pu")
+	@PersistenceContext(unitName = "h2database-jpa-pu")
 	private EntityManager entityManager;
 
 	/**
