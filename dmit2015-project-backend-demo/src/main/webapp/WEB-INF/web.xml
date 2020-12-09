@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!-- Servlet configuration here -->
+    <display-name>dmit2015-project-backend</display-name>
+
+    <!-- To use security role annotations (@RolesAllowed, @PermitAll, @DenyAll) with JAX-RS in Wildfly,
+    you MUST set to "true" the context-param "resteasy.role.based.security" -->
+    <context-param>
+        <param-name>resteasy.role.based.security</param-name>
+        <param-value>true</param-value> <!-- Explicitly required to use @RolesAllowed, @PermitAll with JAX-RS -->
+    </context-param>
+
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/h2-console/*</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+
+    <!--
+    When deploying on Wildfly, you must disable HTTP/2 support at it conflicts with Java EE 8 SSL
+    1. Start the Wildfly server either from Eclipse or from a Terminal using the command $JBOSS_HOME/bin/standalone.sh
+    2. Open a Terminal session and type:
+
+        %JBOSS_HOME%\bin\jboss-cli.bat
+        connect
+        /subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=enable-http2,value=false)
+        reload
+        quit
+    -->
+    <!--    <security-constraint>-->
+    <!--        <display-name>Use HTTPS only</display-name>-->
+    <!--        <web-resource-collection>-->
+    <!--            <web-resource-name>sslResources</web-resource-name>-->
+    <!--            <url-pattern>/*</url-pattern>-->
+    <!--        </web-resource-collection>-->
+    <!--        <user-data-constraint>-->
+    <!--            <transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
+    <!--        </user-data-constraint>-->
+    <!--    </security-constraint>-->
+
+
+</web-app>
