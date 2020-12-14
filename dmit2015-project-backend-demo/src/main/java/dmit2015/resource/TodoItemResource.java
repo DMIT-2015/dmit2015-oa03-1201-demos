@@ -3,6 +3,7 @@ package dmit2015.resource;
 import dmit2015.model.TodoItem;
 import dmit2015.service.TodoItemService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -24,6 +25,12 @@ import java.util.Optional;
  curl -i -X POST http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem \
  -d '{"name":"post TodoItem using curl command", "complete":true}' \
  -H 'Content-Type: application/json'
+
+ curl -i -X POST http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem/secure \
+ -d '{"name":"post secure TodoItem using curl command", "complete":true}' \
+ -H 'Content-Type: application/json' \
+ -H 'Authorization: Bearer eyJraWQiOiJxdWlja3N0YXJ0LWp3dC1pc3N1ZXIiLCJ0eXAiOiJqd3QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyMjAxNSIsInVwbiI6InVzZXIyMDE1IiwiaXNzIjoicXVpY2tzdGFydC1qd3QtaXNzdWVyIiwiYXVkIjoiand0LWF1ZGllbmNlIiwiZ3JvdXBzIjpbIlVTRVIiXSwianRpIjoiOWFhZTNhMjctNzY4Yi00ODU1LTk5YzEtYmRlMTIwYmRhNGI1IiwiaWF0IjoxNjA3OTgxMzEyLCJleHAiOjE2MDc5OTU3MTJ9.yTYCI8Gm137E-NhIC7K_Uw4Z7LDTTxDhqmHPYQZ_8MgcV5ktIeAY4mS8PAUPlHsIUW2VXuuiPCvBbQwWitfU1ZWYjsmsWFPBkePAwPF58mnXPQXXndiFNUpGAcu4RNFeRDQBEo76hWSd9TzuBtwc9Sy0eh-LV5kxxq_Tii5iuT-MYdElc9umjJGqRRuWUoh2LzvWKJHFWUfiGF2x-osvaJMgfaOuDwiDfYCUOnAhQZY9U4uPVN-1Pb2RKVptSmQMD6NdF09tNko5JgJJVy21Q7TxU9V7rhinmka77AAZlIQvcBUjiJRUE56Y3ypDg9Y85B5SMiFsGAzSOjsQtjl05A'
+
 
  * Get the posted TodoItem
  curl -i -X GET http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem/4
@@ -61,6 +68,21 @@ public class TodoItemResource {
 
     @Context
     private UriInfo currentUriInfo;
+
+    @RolesAllowed("USER")
+    @Path("secure")
+    @POST
+    public Response secureCreateTodoItem(TodoItem newTodoItem) {
+        if (newTodoItem == null) {
+            throw new BadRequestException();
+        }
+        currentTodoItemService.createTodoItem(newTodoItem);
+        URI locationUri = currentUriInfo
+                .getAbsolutePathBuilder()
+                .path(newTodoItem.getId().toString())
+                .build();
+        return Response.created(locationUri).build();
+    }
 
     @POST
     public Response createTodoItem(TodoItem newTodoItem) {

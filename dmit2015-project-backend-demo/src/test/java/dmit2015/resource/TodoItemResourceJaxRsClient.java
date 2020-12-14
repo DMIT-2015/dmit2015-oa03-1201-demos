@@ -75,6 +75,21 @@ public class TodoItemResourceJaxRsClient {
         return resourceLocation;
     }
 
+    public String secureCreate(TodoItem newTodoItem, String bearerToken) {
+        final String bearerAuth = "Bearer " + bearerToken;
+        String resourceLocation = "";   // The Location of the created resource
+        Response response = jaxrsClient
+                .target(BASE_URI_TODOITEM)
+                .register(JacksonJsonProvider.class)    // for converting JSON string to Java objects, only need when running outside a container
+                .request()
+                .header("Authorization", bearerAuth)
+                .post( Entity.json(newTodoItem) );
+        if (response.getStatus() == Response.Status.CREATED.getStatusCode()) {
+            resourceLocation = response.getLocation().toString();
+        }
+        return resourceLocation;
+    }
+
     public boolean update(Long id, TodoItem existingTodoItem) {
         boolean success = false;
         Response response = jaxrsClient

@@ -89,4 +89,26 @@ class TodoItemResourceJaxRsClientTest {
         assertFalse(success);
 
     }
+
+    @Test
+    @Order(6)
+    void secureCreateTodoItem() {
+        JwtResourceJaxRsClient jwtJaxRsClient = new JwtResourceJaxRsClient();
+        Optional<String> optionalToken = jwtJaxRsClient.login("user2015","Password2015");
+        assertTrue(optionalToken.isPresent());
+        String token = optionalToken.get();
+
+        TodoItem newTodoItem = new TodoItem();
+        newTodoItem.setName("Create a JUNIT Test Case method for SECURE POST");
+        newTodoItem.setComplete(true);
+        testDataResourceLocation = currentTodoItemResourceJaxRsClient.secureCreate(newTodoItem, token);
+        assertFalse(testDataResourceLocation.equals(""));
+
+        Optional<TodoItem> optionalTodoItem = currentTodoItemResourceJaxRsClient.getOneByLocation(testDataResourceLocation);
+        assertTrue(optionalTodoItem.isPresent());
+        TodoItem existingTodoItem = optionalTodoItem.get();
+        assertEquals(newTodoItem.getName(), existingTodoItem.getName());
+        assertEquals(newTodoItem.isComplete(), existingTodoItem.isComplete());
+
+    }
 }
