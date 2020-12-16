@@ -75,7 +75,7 @@ public class TodoItemResourceJaxRsClient {
         String resourceLocation = "";   // The Location of the created resource
         Response response = jaxrsClient
                 .target(BASE_URI_TODOITEM)
-                .register(JacksonJsonProvider.class)    // for converting JSON string to Java objects, only need when running outside a container
+//                .register(JacksonJsonProvider.class)    // for converting JSON string to Java objects, only need when running outside a container
                 .request()
                 .header("Authorization", bearerAuth)
                 .post( Entity.json(newTodoItem) );
