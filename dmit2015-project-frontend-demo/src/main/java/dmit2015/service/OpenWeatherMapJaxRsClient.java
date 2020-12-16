@@ -17,7 +17,7 @@ public class OpenWeatherMapJaxRsClient {
                 .newClient()
                 .target("https://api.openweathermap.org/data/2.5/weather")
                 .queryParam("q", cityName)
-                .queryParam("appid","83fa06166ad4e994191f3b6a7c0431ab")
+                .queryParam("appid","yourOwnAppId")
                 .request()
                 .get();
         if (response.getStatus() == Response.Status.OK.getStatusCode()) {
