@@ -37,19 +37,19 @@ import java.util.Optional;
  mp.jwt.verify.publickey.location=META-INF/public.pem
  mp.jwt.verify.issuer=quickstart-jwt-issuer
 
-curl -i -X POST http://localhost:8080/dmit2015-project-backend-start/webapi/jwt/formLogin/ \
+curl -i -X POST http://localhost:8080/dmit2015-project-backend-demo/webapi/jwt/formLogin/ \
 	-d 'j_username=user2015&j_password=Password2015' \
 	-H 'Content-Type:application/x-www-form-urlencoded'
 
- curl -i http://localhost:8080/dmit2015-project-backend-start/webapi/jwt/jsonLogin/ \
+ curl -i http://localhost:8080/dmit2015-project-backend-demo/webapi/jwt/jsonLogin/ \
 	-d '{"username":"user2015","password":"Password2015"}' \
 	-H 'Content-Type:application/json'
 
- curl -i http://localhost:8080/dmit2015-project-backend-start/webapi/jwt/jsonLogin/ \
+ curl -i http://localhost:8080/dmit2015-project-backend-demo/webapi/jwt/jsonLogin/ \
 	-d '{"username":"admin2015","password":"Password2015"}' \
 	-H 'Content-Type:application/json'
 
- curl -i http://localhost:8080/dmit2015-project-backend-start/webapi/jwt/jsonLogin/ \
+ curl -i http://localhost:8080/dmit2015-project-backend-demo/webapi/jwt/jsonLogin/ \
  -d '{"username":"useradmin2015","password":"Password2015"}' \
  -H 'Content-Type:application/json'
 

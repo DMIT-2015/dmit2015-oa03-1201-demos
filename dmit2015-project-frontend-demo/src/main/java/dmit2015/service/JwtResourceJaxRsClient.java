@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class JwtResourceJaxRsClient {
 
-    static final String BASE_URI_JWT = "http://localhost:8080/dmit2015-project-backend-start/webapi/jwt";
+    static final String BASE_URI_JWT = "http://localhost:8080/dmit2015-project-backend-demo/webapi/jwt";
     Client jaxRsClient = ClientBuilder.newClient();
 
     public Optional<String> login(String username, String password) {

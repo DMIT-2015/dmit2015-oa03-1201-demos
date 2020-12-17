@@ -1,4 +1,4 @@
-# Project org.example/dmit2015-project-backend-start
+# Project org.example/dmit2015-project-backend-demo
 
 Steps to run this project:
 

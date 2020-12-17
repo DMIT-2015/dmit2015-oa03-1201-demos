@@ -13,8 +13,8 @@ import java.util.Optional;
 
 public class TodoItemResourceJaxRsClient {
 
-//    static final String BASE_URI = "http://localhost:8080/dmit2015-project-backend-start/webapi/";
-    static final String BASE_URI_TODOITEM = "http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem";
+//    static final String BASE_URI = "http://localhost:8080/dmit2015-project-backend-demo/webapi/";
+    static final String BASE_URI_TODOITEM = "http://localhost:8080/dmit2015-project-backend-demo/webapi/TodoItem";
     Client jaxrsClient = ClientBuilder.newClient();
 
     public List<TodoItem> getAll() {

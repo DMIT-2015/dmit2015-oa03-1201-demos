@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>dmit2015-project-backend-start</artifactId>
+  <artifactId>dmit2015-project-backend-demo</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -281,7 +281,7 @@
   </dependencies>
 
   <build>
-    <finalName>dmit2015-project-backend-start</finalName>
+    <finalName>dmit2015-project-backend-demo</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

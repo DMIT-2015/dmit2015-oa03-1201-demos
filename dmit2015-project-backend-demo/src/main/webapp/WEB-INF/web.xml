@@ -5,7 +5,7 @@
          version="4.0">
 
     <!-- Servlet configuration here -->
-    <display-name>dmit2015-project-backend</display-name>
+    <display-name>dmit2015-project-backend-demo</display-name>
 
     <!-- To use security role annotations (@RolesAllowed, @PermitAll, @DenyAll) with JAX-RS in Wildfly,
     you MUST set to "true" the context-param "resteasy.role.based.security" -->

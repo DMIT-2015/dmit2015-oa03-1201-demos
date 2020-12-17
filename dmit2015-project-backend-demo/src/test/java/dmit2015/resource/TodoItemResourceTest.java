@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TodoItemResourceTest {
 
-    static final String BASE_URI_TODOITEM = "http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem";
+    static final String BASE_URI_TODOITEM = "http://localhost:8080/dmit2015-project-backend-demo/webapi/TodoItem";
     static Client jaxrsClient = ClientBuilder.newClient();
     static WebTarget baseTarget;
 
@@ -49,7 +49,7 @@ class TodoItemResourceTest {
                 .request()
                 .post(Entity.json(postTodoItemJsonObject.toString()));
         assertEquals(postResponse.getStatus(), Response.Status.CREATED.getStatusCode());
-        assertEquals("http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem/6", postResponse.getLocation().toString());
+        assertEquals("http://localhost:8080/dmit2015-project-backend-demo/webapi/TodoItem/6", postResponse.getLocation().toString());
         postResponse.close();
     }
 
@@ -60,7 +60,7 @@ class TodoItemResourceTest {
                 .request()
                 .post(Entity.json(postBodyContent));
         assertEquals(postResponse.getStatus(), Response.Status.CREATED.getStatusCode());
-        assertEquals("http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem/7", postResponse.getLocation().toString());
+        assertEquals("http://localhost:8080/dmit2015-project-backend-demo/webapi/TodoItem/7", postResponse.getLocation().toString());
         postResponse.close();
     }
 
@@ -74,7 +74,7 @@ class TodoItemResourceTest {
                 .request()
                 .post(Entity.json(newTodoItem));
         assertEquals(postResponse.getStatus(), Response.Status.CREATED.getStatusCode());
-        assertEquals("http://localhost:8080/dmit2015-project-backend-start/webapi/TodoItem/8", postResponse.getLocation().toString());
+        assertEquals("http://localhost:8080/dmit2015-project-backend-demo/webapi/TodoItem/8", postResponse.getLocation().toString());
         postResponse.close();
     }
 
